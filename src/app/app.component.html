@@ -1,0 +1,43 @@
+<div>
+  <button class="bg-primary" (click)="onlyOdd=!onlyOdd">
+ClickMe
+  </button>
+  <ul class="list-group">
+<div *ngIf="onlyOdd">
+    <li class="list-group-item" *ngFor="let number of odd" [ngStyle]="{backgroundColor:odd%2!==0?'yellow':'green'}" [ngClass]="{odd:number%2!==0}">
+      {{number}}
+      
+      </li>
+
+</div>
+<!---div *ngIf="!onlyOdd">
+  <li class="list-group-item" *ngFor="let number of even">
+    {{number}}
+  </li>
+</div>
+  
+  </ul>
+  <ng-template [ngIf]="!onlyOdd">
+      <li class="list-group-item" *ngFor="let number of even">
+        {{number}}
+      </li>
+      </ng-template>
+    
+</div-->
+<div *appUnless="onlyOdd">
+    <li class="list-group-item" *ngFor="let number of even">
+      {{number}}
+    </li>
+  </div>
+<p appBasicHighLight>Styled with built in directive</p>
+<p appBetterHighlight   [defaultcolor]="'yellow'" [highlightcolor]="'blue'"  >Styled with render</p>
+<p defaultcolor="yellow" highlightcolor="blue" appBetterHighlight>This is property binding without [] and so no '</p>
+<div [ngSwitch]="value">
+<p *ngSwitchCase="5">Value is 5</p>
+<p *ngSwitchCase="10">Value is 10</p>
+<p *ngSwitchCase="15">Value is 15</p>
+<p *ngSwitchCase="20">Value is 20</p>
+<p *ngSwitchDefault>Value is not  set</p>
+
+
+</div>
